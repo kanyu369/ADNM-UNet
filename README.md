@@ -1,4 +1,5 @@
 # ADNM-UNet
+![ADNM-UNet](https://github.com/kanyu369/ADNM-UNet/blob/main/ADNMUnet.png)
 
 1\. Although we have provided requirements.txt, we recommend manually installing the mamba environment in [mamba](https://github.com/state-spaces/mamba)
 <br>
