@@ -28,7 +28,7 @@ epochs = 60
 best = -10000
 
 dataset = 'LAPS'
-# dataset = 'Shanghai'
+dataset = 'Shanghai'
 
 model_name='ADNMUnet'
 # model_name='MambaUNet'
