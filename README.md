@@ -10,12 +10,10 @@
 ```python
 python -m train
 ```
-<br>
 5\. To validate models after training, cd to the project's root directory and run
 ```python
 python -m validate
 ```
-<br>
 6\. To generate pictures, cd to the project's root directory and run
 ```python
 python -m pic_results
