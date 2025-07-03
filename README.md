@@ -26,4 +26,4 @@ python -m pic_results
 ```
 
 
-This project is based on VSSD([paper](https://arxiv.org/abs/2407.18559),[code](https://github.com/YuHengsss/VSSD)), Mamba2 ([paper](https://arxiv.org/abs/2405.21060), [code](https://github.com/state-spaces/mamba)), DiffCast([paper](https://arxiv.org/abs/2312.06734), [code](https://github.com/DeminYu98/DiffCast)), thanks for their excellent works.
+This project is based on VSSD([paper](https://arxiv.org/abs/2407.18559),[code](https://github.com/YuHengsss/VSSD)), Mamba-UNet([paper](https://ieeexplore.ieee.org/abstract/document/10925469/)), Mamba2 ([paper](https://arxiv.org/abs/2405.21060), [code](https://github.com/state-spaces/mamba)), DiffCast([paper](https://arxiv.org/abs/2312.06734), [code](https://github.com/DeminYu98/DiffCast)), thanks for their excellent works.
