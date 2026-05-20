@@ -47,6 +47,9 @@ If you only need to run **ADNM-UNet** and the provided **baseline** models witho
 ```python
 python -m train
 ```
+```python
+python -m trains
+```
 
 5\. To validate models after training, cd to the project's root directory and run
 ```python
