@@ -43,21 +43,21 @@ If you only need to run **ADNM-UNet** and the provided **baseline** models witho
 3\. To obtain the `shanghai.h5` dataset, please visit [DiffCast](https://github.com/DeminYu98/DiffCast).
 <br>
 <br>
-4\. To train models, cd to the project's root directory and run
+4\. To train models one by one, cd to the project's root directory and run
 ```python
 python -m train
 ```
-or
+5\. To train all the models at once, cd to the project's root directory and run
 ```python
 python -m trains
 ```
 
-5\. To validate models after training, cd to the project's root directory and run
+6\. To validate models after training, cd to the project's root directory and run
 ```python
 python -m validate
 ```
 
-6\. To generate pictures, cd to the project's root directory and run
+7\. To generate pictures, cd to the project's root directory and run
 ```python
 python -m pic_results
 ```
