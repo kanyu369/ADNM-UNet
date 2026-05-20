@@ -47,20 +47,25 @@ If you only need to run **ADNM-UNet** and the provided **baseline** models witho
 ```python
 python -m train
 ```
+<br>
+<br>
 5\. To train all the models at once, cd to the project's root directory and run
 ```python
 python -m trains
 ```
-
+<br>
+<br>
 6\. To validate models after training, cd to the project's root directory and run
 ```python
 python -m validate
 ```
-
+<br>
+<br>
 7\. To generate pictures, cd to the project's root directory and run
 ```python
 python -m pic_results
 ```
+<br>
 
 
 This project is based on VSSD([paper](https://arxiv.org/abs/2407.18559),[code](https://github.com/YuHengsss/VSSD)), Mamba-UNet([paper](https://ieeexplore.ieee.org/abstract/document/10925469/)), Mamba2 ([paper](https://arxiv.org/abs/2405.21060), [code](https://github.com/state-spaces/mamba)), DiffCast([paper](https://arxiv.org/abs/2312.06734), [code](https://github.com/DeminYu98/DiffCast)), thanks for their excellent works.
