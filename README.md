@@ -47,6 +47,7 @@ If you only need to run **ADNM-UNet** and the provided **baseline** models witho
 ```python
 python -m train
 ```
+or
 ```python
 python -m trains
 ```
