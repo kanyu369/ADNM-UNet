@@ -27,13 +27,13 @@ best = 10000
 dataset = 'LAPS'
 dataset = 'Shanghai'
 
-# model_name='ADNMUnet'
+model_name='ADNMUnet'
 # model_name='TrajGRU'
 # model_name='ConvLSTM'
 # model_name='TransUnet'
 # model_name='LPTQPN'
 # model_name='SmaATUnet'
-model_name='SwinUnet'
+# model_name='SwinUnet'
 
 print("-----准备数据集-----")
 
@@ -80,18 +80,18 @@ if model_name == 'ADNMUnet':
     epochs = 40
     if frame_interval < 120/input_frames: # 根据InstanceNorm决定梯度裁剪强度
         save_epoch=34
-        norm_ratio=1.75
-        norm_max=0.025
-        norm_initial=0.175
+        norm_ratio=2.0
+        norm_max=0.02
+        norm_initial=0.35
         early_stop=3
-        grad_epoch_excursion=1
+        grad_epoch_excursion=2
     else:
         save_epoch=20
         norm_ratio=3.0
-        norm_max=0.035
-        norm_initial=0.065
+        norm_max=0.03
+        norm_initial=0.06
         early_stop=5
-        grad_epoch_excursion=0
+        grad_epoch_excursion=1
         
 if if_early_stop:
     early_stop_count=0
@@ -120,12 +120,13 @@ for epoch in range(1,epochs+1):
     clip_count = 0
 
     if norm_clip:
-        if epoch <= warmup_epoch+1:
+        if epoch <= warmup_epoch:
             current_norm = norm_max
         elif epoch <= save_epoch- warmup_epoch+grad_epoch_excursion:
-
-            alpha =norm_initial+(1-norm_initial)*(epoch - warmup_epoch) / (save_epoch- warmup_epoch+grad_epoch_excursion) 
-            current_norm = alpha*norm_ratio * prev_avg_grad_norm
+            total_step = save_epoch - warmup_epoch + grad_epoch_excursion
+            current_step = epoch - warmup_epoch
+            alpha = norm_initial + (1 - norm_initial) * 0.5 * (1 - math.cos(math.pi * current_step / total_step))
+            current_norm = alpha * norm_ratio * prev_avg_grad_norm_norm
         else:
             current_norm = norm_ratio * prev_avg_grad_norm
         
@@ -156,7 +157,7 @@ for epoch in range(1,epochs+1):
     model.eval()
     val_loss = 0
     with torch.no_grad():
-        for batch in val_dataloader:
+        for data in val_dataloader:
             imgs, targets = data[:,:input_frames,:,:,:],data[:,input_frames:,:,:,:]
             imgs_cuda, targets_cuda = imgs.to(torch.float32).to(device), targets.to(torch.float32).to(device)
             outputs = model(imgs_cuda)
